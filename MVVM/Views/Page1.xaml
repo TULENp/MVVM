@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:MVVM.ViewModels"
+             x:Class="MVVM.Views.Page1"
+             x:DataType="ViewModels:Page1VM">
+
+    <ContentPage.BindingContext>
+        <ViewModels:Page1VM></ViewModels:Page1VM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame BackgroundColor="{Binding FrameColor}">
+            <StackLayout Padding="10">
+                <Button Text="Next page" Style="{StaticResource MyButton}" Command="{Binding Push}"/>
+                <Button Text="Color" Style="{StaticResource MyButton}" Command="{Binding  ChangeColor}"/>
+
+                <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
