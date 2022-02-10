@@ -27,6 +27,7 @@ namespace MVVM.ViewModels
     }
     public class MyResponce
     {
+        [JsonProperty("data")]
         public List<Users> Responce { get; set; }
     }
 
