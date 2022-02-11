@@ -33,7 +33,7 @@ namespace MVVM.ViewModels
 
     class Page2VM : BindableObject
     {
-        private ObservableCollection<User> data;
+        public ObservableCollection<User> data { get; set; }
         private HttpClient client;
         private object source;
         public object Source

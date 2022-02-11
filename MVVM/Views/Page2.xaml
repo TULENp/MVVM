@@ -1,23 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:MVVM.ViewModels"
-             x:Class="MVVM.Views.Page2">
+             x:Class="MVVM.Views.Page2"
+             Title="Users">
     <ContentPage.BindingContext>
         <ViewModels:Page2VM/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Button Text="Next page" Style="{StaticResource MyButton}" Command="{Binding OnPush}"/>
-                <Button Text="Fill" Style="{StaticResource MyButton}" Command="{Binding Fill}"/>
-                <ListView ItemsSource="{Binding Source}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding FirstName}" Detail="{Binding LastName}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+            <Frame Style="{StaticResource MyFrame}">
+
+                <StackLayout>
+                    <StackLayout BindableLayout.ItemsSource="{Binding Source}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Avatar}" />
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label  Text="{Binding FirstName}" Style="{StaticResource MyLabel}" FontSize="20"/>
+                                            <Label  Text="{Binding LastName}" Style="{StaticResource MyLabel}" FontSize="20"/>
+                                        </StackLayout>
+                                        <Label  Text="{Binding Email}" Style="{StaticResource MyLabel}" FontSize="12" TextColor="Gray"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                        <BindableLayout.EmptyView>
+                            <Label Text="No info. Please load it" Style="{StaticResource MyLabel}" HorizontalOptions="Center" FontSize="30"/>
+                        </BindableLayout.EmptyView>
+                    </StackLayout>
+                    <Button Text="Load" Style="{StaticResource MyButton}" Command="{Binding Fill}" VerticalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

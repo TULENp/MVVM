@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:MVVM.ViewModels"
              x:Class="MVVM.Views.Page1"
-             x:DataType="ViewModels:Page1VM">
+             x:DataType="ViewModels:Page1VM"
+             Title="MainPage">
 
     <ContentPage.BindingContext>
         <ViewModels:Page1VM></ViewModels:Page1VM>
@@ -10,12 +11,11 @@
     <ContentPage.Content>
         <Frame BackgroundColor="{Binding FrameColor}">
             <StackLayout Padding="10">
-                <Button Text="Next page" Style="{StaticResource MyButton}" Command="{Binding Push}"/>
                 <Button Text="Color" Style="{StaticResource MyButton}" Command="{Binding  ChangeColor}"/>
-
-                <Label Text="Welcome to Xamarin.Forms!"
+                <Label Text="Lets change the color" Style="{StaticResource MyLabel}" FontSize="30"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+                <Button Text="Next page" Style="{StaticResource MyButton}" Command="{Binding Push}"/>
             </StackLayout>
         </Frame>
     </ContentPage.Content>

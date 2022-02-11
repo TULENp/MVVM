@@ -12,9 +12,10 @@
                 <StackLayout BindableLayout.ItemsSource="{Binding UsersCollection}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Label Text="{Binding Country}" Style="{StaticResource MyLabel}" FontSize="50"/>
+                            <TextCell Text="{Binding Name}" Detail="{Binding Country}"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
+                    
                     <BindableLayout.EmptyView>
                         No info
                     </BindableLayout.EmptyView>

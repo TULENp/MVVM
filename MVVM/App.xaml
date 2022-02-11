@@ -15,7 +15,7 @@
                         Value="{AppThemeBinding
                     Dark={StaticResource DarkBlueColor},
                     Light={StaticResource LightColor}}" />
-                <Setter Property="Padding" Value="5" />
+                <Setter Property="Padding" Value="10" />
             </Style>
 
             <Style x:Key="MyLabel" TargetType="Label">
@@ -23,7 +23,6 @@
                         Value="{AppThemeBinding
                     Dark={StaticResource TextColorDark},
                     Light={StaticResource TextColor}}" />
-                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
 
             <Style x:Key="MyButton" TargetType="Button">
