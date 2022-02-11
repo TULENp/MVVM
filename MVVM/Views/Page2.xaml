@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
+                <Button Text="Next page" Style="{StaticResource MyButton}" Command="{Binding OnPush}"/>
                 <Button Text="Fill" Style="{StaticResource MyButton}" Command="{Binding Fill}"/>
                 <ListView ItemsSource="{Binding Source}">
                     <ListView.ItemTemplate>

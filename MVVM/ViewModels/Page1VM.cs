@@ -28,7 +28,7 @@ namespace MVVM.ViewModels
         public ICommand Push => new Command(OnPush);
         private void OnPush()
         {
-            App.Current.MainPage.Navigation.PushAsync(new Page2());
+            App.Current.MainPage.Navigation.PushAsync(new Page3());
         }
         private void OnChangeColor()
         {

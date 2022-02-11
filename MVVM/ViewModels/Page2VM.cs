@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MVVM.ViewModels
 {
-    public class Users
+    public class User
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -28,12 +28,12 @@ namespace MVVM.ViewModels
     public class MyResponce
     {
         [JsonProperty("data")]
-        public List<Users> Responce { get; set; }
+        public List<User> Responce { get; set; }
     }
 
     class Page2VM : BindableObject
     {
-        private ObservableCollection<Users> data;
+        private ObservableCollection<User> data;
         private HttpClient client;
         private object source;
         public object Source
@@ -56,7 +56,7 @@ namespace MVVM.ViewModels
             client = new HttpClient();
             var result = await client.GetStringAsync("https://reqres.in/api/users?page=2");
             var users = JsonConvert.DeserializeObject<MyResponce>(result);
-            data = new ObservableCollection<Users>(users.Responce);
+            data = new ObservableCollection<User>(users.Responce);
             Source = data;
         }
     }
