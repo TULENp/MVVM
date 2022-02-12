@@ -50,14 +50,20 @@ namespace MVVM.ViewModels
         }
         public ICommand Fill => new Command(Request);
 
-
         public async void Request()
         {
             client = new HttpClient();
             var result = await client.GetStringAsync("https://reqres.in/api/users?page=2");
             var users = JsonConvert.DeserializeObject<MyResponce>(result);
-            data = new ObservableCollection<User>(users.Responce);
+
+            data = new ObservableCollection<User>();
+            //data = new ObservableCollection<User>(users.Responce);
+            foreach (User user in users.Responce)
+            {
+                data.Add(user);
+            }
             Source = data;
+
         }
     }
 }
