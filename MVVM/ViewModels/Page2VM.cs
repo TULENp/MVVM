@@ -22,6 +22,7 @@ namespace MVVM.ViewModels
 
         public async void Request()
         {
+
             client = new HttpClient();
             var result = await client.GetStringAsync("https://reqres.in/api/users?page=2");
             var people = JsonConvert.DeserializeObject<MyResponce>(result);
